@@ -1,0 +1,39 @@
+<div class="main">
+
+  <nl-search-bar 
+    placeholder="Add new todo"
+    #searchBar 
+    [listItems]="[]" 
+    (onItemAdd)="this.addTodo($event.target.value)"
+  >
+
+    <ng-template #listItem let-item>
+      <li class="suggestion-list-item">{{item}}</li>
+    </ng-template>
+
+  </nl-search-bar>
+
+  <div class="content">
+
+    <div class="empty-list" *ngIf="this.todos.length == 0">
+      <i class="material-icons add-item" (click)="searchBar.focus()">add</i>
+      <span class="msg">Add item to list.</span>
+    </div>
+
+      <!-- [sortablejs]="todos"  -->
+    <ul class="todo-list" 
+      *ngIf="this.todos.length > 0"
+      >
+      <li *ngFor="let todo of todos" [class.finished]="todo.isDone">
+        <!-- <i class="material-icons drag-handle">drag_handle</i> -->
+        <span class="name">{{todo.name}}</span>
+        <i class="material-icons checkbox" (click)="this.toggleTodo(todo)">
+          {{ todo.isDone ? 'check_box' : 'check_box_outline_blank' }}
+        </i>
+        <div class="clearfix"></div>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

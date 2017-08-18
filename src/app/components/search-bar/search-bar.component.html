@@ -1,0 +1,38 @@
+<div class="search-bar">
+
+  <div class="backdrop" *ngIf="this.isFocused"></div>
+
+  <div class="search-input-wrapper" [class.focused]="this.isFocused">
+
+    <i class="material-icons menu">menu</i>
+    <i class="material-icons back">arrow_back</i>
+    <i class="material-icons search">add</i>
+
+
+    <input 
+      type="text" 
+      class="search-input" 
+      [(ngModel)]="this.value" 
+      [placeholder]="this.placeholder" 
+      (blur)="this.isFocused=false"
+      (focus)="this.isFocused=true" 
+      (keyup.enter)="this.onItemAdd.next($event)"
+      #searchInput
+    >
+
+    <ul class="suggestion-list">
+      <ng-container *ngFor="let item of listItems">
+
+        <ng-container *ngTemplateOutlet="listItemRef || defaultItemTemplate; context: {$implicit: item}">
+        </ng-container>
+
+        <ng-template #defaultItemTemplate let-item>
+          <li class="suggestion-list-item" (click)="onItemClick.next(item)">{{item}}</li>
+        </ng-template>
+
+      </ng-container>
+    </ul>
+
+  </div>
+
+</div>

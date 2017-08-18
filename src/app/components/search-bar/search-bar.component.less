@@ -1,0 +1,79 @@
+.search-bar {
+    padding: 8px;
+    position: relative;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.47);
+    z-index: 1;
+}
+
+:host::ng-deep .search-input-wrapper {
+    background: white;
+    border-radius: 2px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+
+    .search-input{
+        width: 100%; 
+        box-sizing: border-box;
+        background: transparent;
+        height: 52px;
+        border: none;
+        padding-left: 69px;
+        font-family: 'Roboto';
+        font-size: 17px;
+        margin-top: 0px;
+        z-index: 2;
+        position: relative;
+        outline: none;
+    }
+
+    .menu, 
+    .back,
+    .search {
+        position: absolute;
+        top: 14px;
+        opacity: 1;
+
+        &.menu, &.back {
+            left: 17px;
+            transition: all 160ms;
+            z-index: 3;
+        }
+
+        &.back { opacity: 0; }
+
+        &.search {
+            right: 17px;
+            z-index: 1;
+        }
+    }
+
+    .suggestion-list {
+        max-height: 0;
+        transition: max-height 0.15s;
+        overflow: hidden;
+
+        .suggestion-list-item {
+            border-top: 1px solid #e7e7e7;
+            padding: 12px 18px;
+        }
+    }
+
+    &.focused {
+        .menu { opacity: 0; }
+        .back { opacity: 1; }
+     
+        .suggestion-list {
+            max-height: 600px;
+            transition: max-height 0.15s;
+        }
+    }
+}
