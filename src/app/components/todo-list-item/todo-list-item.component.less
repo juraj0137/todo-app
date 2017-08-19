@@ -1,0 +1,27 @@
+
+.todo-item {
+    position: relative;
+    padding: 12px;
+    border-top: 1px solid silver;
+    padding: 12px 18px;
+
+    &.finished {
+        opacity: 0.45;
+    }
+
+    .todo-name {
+        vertical-align: middle;
+        padding-right: 30px;
+        display: inline-block;
+        line-height: 24px;
+    }
+
+    md-checkbox {
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        margin-top: -10px;
+        cursor: pointer;
+    }
+
+}

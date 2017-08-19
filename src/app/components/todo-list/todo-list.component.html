@@ -1,0 +1,10 @@
+<div class="todo-list" *ngIf="this.todos.length > 0; else emptyList">
+  <nl-todo-list-item *ngFor="let todo of todos" [todo]="todo" (onDelete)="this.onDeleteItem.next(todo)" (onToggleTodo)="this.onToggleTodo.next(todo)"></nl-todo-list-item>
+</div>
+
+<ng-template #emptyList>
+  <div class="empty-list">
+    <i class="material-icons add-item" (click)="this.onAddItem.next()">add</i>
+    <span class="msg">Add item to list.</span>
+  </div>
+</ng-template>

@@ -1,0 +1,14 @@
+<div class="todo-item" [class.finished]="todo.isDone" long-press (onLongPress)="this.onLongpress($event)" (contextmenu)="this.onRightclick($event)">
+  <span class="todo-name">{{todo.name}}</span>
+
+  <md-checkbox class="example-margin" [ngModel]="todo.isDone" (ngModelChange)="this.onToggleTodo.next(todo)"></md-checkbox>
+
+  <div class="clearfix"></div>
+
+  <md-menu #menu="mdMenu">
+    <button md-menu-item (click)="this.onDelete.next(todo)">Delete</button>
+  </md-menu>
+
+  <button [mdMenuTriggerFor]="menu" [style]="menuTriggerStyle"></button>
+
+</div>

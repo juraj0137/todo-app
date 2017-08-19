@@ -1,0 +1,13 @@
+<div class="home-view">
+
+  <nl-search-bar placeholder="Add new todo" #searchBar (onItemAdd)="this.addTodo($event.target.value)">
+    <ng-template #listItem let-item>
+      <li class="suggestion-list-item">{{item}}</li>
+    </ng-template>
+  </nl-search-bar>
+
+  <div class="content">
+    <nl-todo-list [todos]="this.todos" (onDeleteItem)="this.removeTodo($event)" (onAddItem)="searchBar.focus()" (onToggleTodo)="this.toggleTodo($event)"></nl-todo-list>
+  </div>
+
+</div>

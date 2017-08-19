@@ -1,24 +1,20 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { SortablejsModule } from 'angular-sortablejs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdCheckboxModule, MdMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { ColorPickerModule } from 'ngx-color-picker';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodoListItemComponent } from './components/todo-list-item/todo-list-item.component';
+import { HomeComponent } from './views/home/home.component';
+import { LongPressDirective } from './long-press.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchBarComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    SortablejsModule
-  ],
+  declarations: [AppComponent, SearchBarComponent, TodoListComponent, TodoListItemComponent, HomeComponent, LongPressDirective],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MdCheckboxModule, MdMenuModule],
   providers: [],
   bootstrap: [AppComponent]
 })
