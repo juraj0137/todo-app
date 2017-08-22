@@ -7,7 +7,10 @@
   </nl-search-bar>
 
   <div class="content">
-    <nl-todo-list [todos]="this.todos" (onDeleteItem)="this.removeTodo($event)" (onAddItem)="searchBar.focus()" (onToggleTodo)="this.toggleTodo($event)"></nl-todo-list>
+    <nl-todo-list [todos]="this.sortedTodos" (onDeleteItem)="this.removeTodo($event)" (onAddItem)="searchBar.focus()" (onToggleTodo)="this.toggleTodo($event)"></nl-todo-list>
+    <button md-fab (click)="this.clearCompleted()" #fab *ngIf="this.isClearBtnShown()" class="animated bounceInRight">
+      <md-icon>clear_all</md-icon>
+    </button>
   </div>
 
 </div>

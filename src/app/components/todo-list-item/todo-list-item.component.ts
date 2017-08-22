@@ -48,8 +48,8 @@ export class TodoListItemComponent {
     if (!element) return { x: 0, y: 0 };
 
     return {
-      y: event.pageY - element.getBoundingClientRect().top - 10,
-      x: event.pageX - element.getBoundingClientRect().left
+      y: event.clientY - element.getBoundingClientRect().top - 10,
+      x: event.clientX - element.getBoundingClientRect().left
     }
   }
 

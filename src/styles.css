@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./animate.css";
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700'); 
 
 html, body {
@@ -6,10 +7,26 @@ html, body {
 }
 
 body {
-    background-color: #1e88e5;
+    background: #1277d3;
 }
 
 * {
     margin: 0;
     padding: 0;
+}
+
+nl-root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nl-root > h1 {
+    color: #f7f9f9;
 }

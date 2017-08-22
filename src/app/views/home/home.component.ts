@@ -44,7 +44,20 @@ export class HomeComponent implements OnInit {
     this.updateLS();
   }
 
-  updateLS() {
+  clearCompleted() {
+    this.todos = this.todos.filter(t => !t.isDone);
+    this.updateLS();
+  }
+
+  isClearBtnShown() {
+    return this.todos.some(t => t.isDone);
+  }
+
+  get sortedTodos() {
+    return this.todos.sort((a, b) => a.isDone ? 1 : -1)
+  }
+
+  private updateLS() {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 

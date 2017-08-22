@@ -1,4 +1,4 @@
-<div class="todo-list" *ngIf="this.todos.length > 0; else emptyList">
+<div class="todo-list fadeInLeftBig animated" *ngIf="this.todos.length > 0; else emptyList">
   <nl-todo-list-item *ngFor="let todo of todos" [todo]="todo" (onDelete)="this.onDeleteItem.next(todo)" (onToggleTodo)="this.onToggleTodo.next(todo)"></nl-todo-list-item>
 </div>
 
